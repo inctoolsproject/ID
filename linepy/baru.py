@@ -379,7 +379,7 @@ def help():
     return helpMessage
 
 def helpbot():
-    key = Setmain["keyCommand"]
+    key = wait["keyCommand"]
     key = key.title()
     helpMessage1 = "╭━━━━━━━━━━━━━━━━\n" + \
                   "║┝───────────────" + "\n" + \
@@ -421,7 +421,7 @@ def helpbot():
     return helpMessage1
 
 def helpadmin():
-    key = Setmain["keyCommand"]
+    key = wait["keyCommand"]
     key = key.title()
     helpMessage2 = "╭━━━━━━━━━━━━━━━━\n" + \
                   "║│ " + key + "Notag「on/off」\n" + \
@@ -634,6 +634,7 @@ def bot(op):
                     try:
                         kn.cancelGroupInvitation(op.param1,[op.param3])
                         kn.kickoutFromGroup(op.param1,[op.param2])
+			wait["blacklist"][op.param2] = True
                     except:
                         try:
                             ki.cancelGroupInvitation(op.param1,[op.param3])
@@ -642,6 +643,7 @@ def bot(op):
                             try:
                                 kk.cancelGroupInvitation(op.param1,[op.param3])
                                 kk.kickoutFromGroup(op.param1,[op.param2])
+				wait["blacklist"][op.param2] = True
                             except:
                                 try:
                                     kc.cancelGroupInvitation(op.param1,[op.param3])
@@ -753,6 +755,7 @@ def bot(op):
                     try:
                         ki.inviteIntoGroup(op.param1,[op.param3])
                         ki.kickoutFromGroup(op.param1,[op.param2])
+			wait["blacklist"][op.param2] = True
                     except:
                         try:
                             kk.inviteIntoGroup(op.param1,[op.param3])
@@ -795,6 +798,7 @@ def bot(op):
                         ki.findAndAddContactsByMid(op.param1,[op.param3])
                         ki.inviteIntoGroup(op.param1,[op.param3])
                         cl.acceptGroupInvitation(op.param1)
+			wait["blacklist"][op.param2] = True
                     except:
                         try:
                             kk.kickoutFromGroup(op.param1,[op.param2])
