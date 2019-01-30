@@ -1,6 +1,5 @@
 
 # -*- coding: utf-8 -*- 
-import linepy
 from linepy import *
 from akad.ttypes import *
 from multiprocessing import Pool, Process
@@ -131,6 +130,7 @@ wait = {
     "Talkdblacklist":False,
     "talkban":True,
     "contact":False,
+    "autoRead":True,
     'autoJoin':True,
     'autoAdd':True,
     'autoLeave':False,
@@ -138,6 +138,7 @@ wait = {
     "detectMention":True,
     "Mentionkick":False,
     "welcomeOn":False,
+    "keyCommand": "",
     "sticker":False,
     "selfbot":True,
     "mention":"nah",
@@ -160,8 +161,7 @@ cctv = {
     "sidermem":{}
 }
 
-Setbot = codecs.open("setting.json","r","utf-8")
-Setmain = json.load(Setbot)
+
 
 mulai = time.time()
 
@@ -319,14 +319,14 @@ def mentionMembers(to, mids=[]):
 
 def command(text):
     pesan = text.lower()
-    if pesan.startswith(Setmain["keyCommand"]):
-        cmd = pesan.replace(Setmain["keyCommand"],"")
+    if pesan.startswith(wait["keyCommand"]):
+        cmd = pesan.replace(wait["keyCommand"],"")
     else:
         cmd = "command"
     return cmd
 
 def help():
-    key = Setmain["keyCommand"]
+    key = wait["keyCommand"]
     key = key.title()
     helpMessage = "╭━━━━━━━━━━━━━━━━\n" + \
                   "║┝───────────────" + "\n" + \
@@ -1236,11 +1236,11 @@ def bot(op):
 
         if op.type == 55:
             try:
-                if op.param1 in Setmain["readPoint"]:
-                   if op.param2 in Setmain["readMember"][op.param1]:
+                if op.param1 in read["readPoint"]:
+                   if op.param2 in read["readMember"][op.param1]:
                        pass
                    else:
-                       Setmain["readMember"][op.param1][op.param2] = True
+                       read["readMember"][op.param1][op.param2] = True
                 else:
                    pass
             except:
@@ -1427,20 +1427,6 @@ def bot(op):
                         wait["Talkdblacklist"] = True
                         cl.sendMessage(msg.to,"Contact itu tidak ada di Talkban")
 #UPDATE FOTO
-               if msg.contentType == 1:
-                 if msg._from in admin:
-                    if Setmain["Addimage"] == True:
-                        msgid = msg.id
-                        fotoo = "https://obs.line-apps.com/talk/m/download.nhn?oid="+msgid
-                        headers = cl.Talk.Headers
-                        r = requests.get(fotoo, headers=headers, stream=True)
-                        if r.status_code == 200:
-                            path = os.path.join(os.path.dirname(__file__), 'dataPhotos/%s.jpg' % Setmain["Img"])
-                            with open(path, 'wb') as fp:
-                                shutil.copyfileobj(r.raw, fp)
-                            cl.sendText(msg.to, "Berhasil menambahkan gambar")
-                        Setmain["Img"] = {}
-                        Setmain["Addimage"] = False
 
                if msg.toType == 2:
                  if msg._from in admin:
@@ -1508,7 +1494,7 @@ def bot(op):
                      kn.sendMessage(msg.to, "Berhasil mengubah foto profile bot")
 
                if msg.contentType == 0:
-                    if Setmain["autoRead"] == True:
+                    if wait["autoRead"] == True:
                         cl.sendChatChecked(msg.to, msg_id)
                     if text is None:
                         return
@@ -1678,7 +1664,7 @@ def bot(op):
                         elif text.lower() == "mykey":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
-                               cl.sendMessage(msg.to, "[Mykey]\nSetkey bot mu[ " + str(Setmain["keyCommand"]) + " ]")
+                               cl.sendMessage(msg.to, "[Mykey]\nSetkey bot mu[ " + str(wait["keyCommand"]) + " ]")
                                
                         elif cmd.startswith("setkey "):
                           if wait["selfbot"] == True:
@@ -1688,13 +1674,13 @@ def bot(op):
                                if key in [""," ","\n",None]:
                                    cl.sendMessage(msg.to, "Gagal mengganti key")
                                else:
-                                   Setmain["keyCommand"] = str(key).lower()
+                                   wait["keyCommand"] = str(key).lower()
                                    cl.sendMessage(msg.to, "[Setkey]\nSetkey diganti jadi[{}]".format(str(key).lower()))
 
                         elif text.lower() == "resetkey":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
-                               Setmain["keyCommand"] = ""
+                               wait["keyCommand"] = ""
                                cl.sendMessage(msg.to, "[Setkey]\nSetkey mu kembali ke awal")
 
                       #  elif cmd == "restart":
@@ -2084,31 +2070,6 @@ def bot(op):
                                 kn.sendMessage(msg.to,"Nama diganti jadi " + string + "")
 
 #===========BOT UPDATE============#
-                        elif cmd == "tagall" or text.lower() == '😆':
-                          if wait["selfbot"] == True:
-                            if msg._from in admin:
-                             members = []
-                             if msg.toType == 1:
-                                 room = cl.getCompactRoom(to)
-                                 members = [mem.mid for mem in room.contacts]
-                             elif msg.toType == 2:
-                                 group = cl.getCompactGroup(to)
-                                 members = [mem.mid for mem in group.members]
-                             else:
-                                 return cl.sendMessage(to, 'Failed mentionall members, use this command only on room or group chat')
-                             if members:
-                                 mentionMembers(to, members)
-
-                        elif cmd == "listbot":
-                          if wait["selfbot"] == True:
-                            if msg._from in admin:
-                                ma = ""
-                                a = 0
-                                for m_id in Bots:
-                                    a = a + 1
-                                    end = '\n'
-                                    ma += str(a) + ". " +cl.getContact(m_id).displayName + "\n"
-                                cl.sendMessage(msg.to,"daftar bots\n"+ma+"\nTotal[%s] Bots" %(str(len(Bots))))
 
                         elif cmd == "listadmin":
                           if wait["selfbot"] == True:
