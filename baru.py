@@ -48,7 +48,7 @@ kn.log("Auth Token : " + str(kn.authToken))
 channel5 = LineChannel(kn)
 kn.log("Channel Access Token : " + str(channel5.channelAccessToken))
 
-ko = LineClient(authToken='u10edf1b1d7503a698fd2496a8d2ee6da:aWF0OiAxNTQ3MzY1MTY1NTM2Cg==..DMHEbZYksf7l+NP0oHaaLCt+/E4=')
+ko = LineClient(authToken='u3f01617eaf3ac162e8fd4238215b7f01:aWF0OiAxNTQ3MzYzMTU3MDU4Cg==..fJIwBop2VfsfDzLT1OQogqwopXw=')
 ko.log("Auth Token : " + str(ko.authToken))
 channel6 = LineChannel(ko)
 ko.log("Channel Access Token : " + str(channel6.channelAccessToken))
@@ -907,7 +907,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
@@ -972,7 +972,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
@@ -1037,7 +1037,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
@@ -1102,7 +1102,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
@@ -1167,7 +1167,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
@@ -1232,7 +1232,7 @@ def bot(op):
                                             kn.acceptGroupInvitationByTicket(op.param1,Ticket)
                                             G = cl.getGroup(op.param1)
                                             G.preventedJoinByTicket = True
-                                            cl.updateGroup(G)
+                                            #cl.updateGroup(G)
                                             Ticket = cl.reissueGroupTicket(op.param1)
                                         except:
                                             try:
