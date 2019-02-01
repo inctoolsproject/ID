@@ -39,14 +39,19 @@ kc.log("Channel Access Token : " + str(channel3.channelAccessToken))
 #km = LineClient()
 km = LineClient(authToken='u5363e49c9aee8a09cfc6443f23c61053:aWF0OiAxNTQ2NjU5MzYxOTg4Cg==..vFQA4+hGWkEOPSGOw3o3h0JU6vw=')
 km.log("Auth Token : " + str(km.authToken))
-channel3 = LineChannel(kc)
-km.log("Channel Access Token : " + str(channel3.channelAccessToken))
+channel4 = LineChannel(kc)
+km.log("Channel Access Token : " + str(channel4.channelAccessToken))
 
 #kn = LineClient()
 kn = LineClient(authToken='u10edf1b1d7503a698fd2496a8d2ee6da:aWF0OiAxNTQ3MzY1MTY1NTM2Cg==..DMHEbZYksf7l+NP0oHaaLCt+/E4=')
 kn.log("Auth Token : " + str(kn.authToken))
-channel3 = LineChannel(kn)
-kn.log("Channel Access Token : " + str(channel3.channelAccessToken))
+channel5 = LineChannel(kn)
+kn.log("Channel Access Token : " + str(channel5.channelAccessToken))
+
+ko = LineClient(authToken='u10edf1b1d7503a698fd2496a8d2ee6da:aWF0OiAxNTQ3MzY1MTY1NTM2Cg==..DMHEbZYksf7l+NP0oHaaLCt+/E4=')
+ko.log("Auth Token : " + str(ko.authToken))
+channel6 = LineChannel(ko)
+ko.log("Channel Access Token : " + str(channel6.channelAccessToken))
 
 poll = LinePoll(cl)
 call = cl
@@ -61,10 +66,11 @@ Bmid = kk.getProfile().mid
 Cmid = kc.getProfile().mid
 Dmid = km.getProfile().mid
 Emid = kn.getProfile().mid
+Fmid = ko.getProfile().mid
 
-KAC = [cl,ki,kk,kc,km,kn]
-ABC = [ki,kk,kc,km,kn]
-Bots = [mid,Amid,Bmid,Cmid,Dmid,Emid]
+KAC = [cl,ki,kk,kc,km,kn,ko]
+ABC = [ki,kk,kc,km,kn,ko]
+Bots = [mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid]
 Team = admin + staff
 
 protectqr = []
@@ -79,6 +85,7 @@ responsename2 = kk.getProfile().displayName
 responsename3 = kc.getProfile().displayName
 responsename4 = km.getProfile().displayName
 responsename5 = kn.getProfile().displayName
+responsename6 = ko.getProfile().displayName
 
 settings = {
     "Picture":False,
@@ -1165,7 +1172,71 @@ def bot(op):
                                                 except:
                                                     pass
                 return
-
+            if Fmid in op.param3:
+                if op.param2 in Bots:
+                    pass
+                if op.param2 in owner:
+                    pass
+                if op.param2 in admin:
+                    pass
+                if op.param2 in staff:
+                    pass
+                else:
+                    wait["blacklist"][op.param2] = True
+                    try:
+                        kk.kickoutFromGroup(op.param1,[op.param2])
+                        kk.inviteIntoGroup(op.param1,[op.param3])
+                        ki.acceptGroupInvitation(op.param1)
+                    except:
+                        try:
+                            kc.kickoutFromGroup(op.param1,[op.param2])
+                            kc.inviteIntoGroup(op.param1,[op.param3])
+                            ki.acceptGroupInvitation(op.param1)
+                        except:
+                            try:
+                                km.kickoutFromGroup(op.param1,[op.param2])
+                                km.inviteIntoGroup(op.param1,[op.param3])
+                                ki.acceptGroupInvitation(op.param1)
+                            except:
+                                try:
+                                    kn.kickoutFromGroup(op.param1,[op.param2])
+                                    kn.inviteIntoGroup(op.param1,[op.param3])
+                                    ki.acceptGroupInvitation(op.param1)
+                                except:
+                                    try:
+                                        kc.kickoutFromGroup(op.param1,[op.param2])
+                                        kc.inviteIntoGroup(op.param1,[op.param3])
+                                        ki.acceptGroupInvitation(op.param1)
+                                    except:
+                                        try:				 
+                                            G = cl.getGroup(op.param1)
+                                            G.preventedJoinByTicket = False
+                                           # kk.kickoutFromGroup(op.param1,[op.param2])
+                                            cl.updateGroup(G)
+                                            Ticket = cl.reissueGroupTicket(op.param1)
+                                            cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                            G = cl.getGroup(op.param1)
+                                            G.preventedJoinByTicket = True
+                                            cl.updateGroup(G)
+                                            Ticket = cl.reissueGroupTicket(op.param1)
+                                        except:
+                                            try:
+                                                kk.kickoutFromGroup(op.param1,[op.param2])
+                                                kk.inviteIntoGroup(op.param1,[op.param3])
+                                                ki.acceptGroupInvitation(op.param1)
+                                            except:
+                                                try:
+                                                    kc.kickoutFromGroup(op.param1,[op.param2])
+                                                    kc.inviteIntoGroup(op.param1,[op.param3])
+                                                    ki.acceptGroupInvitation(op.param1)
+                                                except:
+                                                    pass
+                return
 
 
             if admin in op.param3:
