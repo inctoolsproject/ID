@@ -1851,7 +1851,7 @@ def bot(op):
                                 ko.findAndAddContactsByMid(Dmid)
                                 ko.findAndAddContactsByMid(Emid)                                
                                 ko.findAndAddContactsByMid(Bmid)
-
+                                cl.senMessage(msg.to, "done")
                             
                         elif cmd == "ginfo":
                           if msg._from in admin:
