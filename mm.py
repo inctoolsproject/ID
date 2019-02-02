@@ -4091,6 +4091,23 @@ def clientBot(op):
                                    saya = client.getGroupIdsJoined()
                                    for group in saya:
                                        flexBro(group, str(pesan))
+				
+                        elif cmd.startswith("leave "):
+                            if msg._from in admin:
+                                proses = text.split(" ")
+                                ng = text.replace(proses[0] + " ","")
+                                gid = cl.getGroupIdsJoined()
+                                for i in gid:
+                                    h = cl.getGroup(i).name
+                                    if h == ng:
+                                        ki.sendMessage(i, "Silahkan admin invite atau masukan kembali")
+                                        ki.leaveGroup(i)
+                                        kk.leaveGroup(i)
+                                        kc.leaveGroup(i)
+                                        kk.leaveGroup(i)
+                                        kc.leaveGroup(i)
+                                        cl.sendMessage(to,"Berhas
+
                                    
 
                             elif cmd.startswith("fs2 "):
