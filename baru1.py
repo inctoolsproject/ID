@@ -2504,7 +2504,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Staffadd " in msg.text):
+                        elif ("addf " in msg.text):
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -2514,8 +2514,8 @@ def bot(op):
                                     targets.append(x["M"])
                                for target in targets:
                                        try:
-                                           staff.append(target)
-                                           cl.sendMessage(msg.to,"Berhasil menambahkan staff")
+                                           cl.findAndAddContactsByMid(target)
+                                           cl.sendMessage(msg.to,"sucses add friend")
                                        except:
                                            pass
 
