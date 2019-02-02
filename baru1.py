@@ -628,22 +628,48 @@ def bot(op):
                                             kk.cancelGroupInvitation(op.param1,[op.param3])
                                         except:
                                             pass
-
-            if op.param3 in wait["blacklist"]:
+            if op.param3 in wait["blacklist]:
                 if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
                     wait["blacklist"][op.param2] = True
                     try:
-                        random.choice(ABC).cancelGroupInvitation(op.param1,[op.param3])
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                        wait["blacklist"][op.param2] = True
+                        ki.cancelGroupInvitation(op.param1,[op.param3])
+                        ki.kickoutFromGroup(op.param1,[op.param2])
                     except:
-                        pass
+                        try:
+                            kk.cancelGroupInvitation(op.param1,[op.param3])
+                            kk.kickoutFromGroup(op.param1,[op.param2])
+                        except:
+                            try:
+                                kc.cancelGroupInvitation(op.param1,[op.param3])
+                                kc.kickoutFromGroup(op.param1,[op.param2])
+                            except:
+                                try:
+                                    km.cancelGroupInvitation(op.param1,[op.param3])
+                                    km.kickoutFromGroup(op.param1,[op.param2])
+                                except:
+                                    try:
+                                        random.choice(ABC).cancelGroupInvitation(op.param1,[op.param3])
+                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                    except:
+                                        pass
 
         if op.type == 17:
             if op.param2 in wait["blacklist"]:
-                random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-            else:
-                pass
+                ki.kickoutFromGroup(op.param1,[op.param2])
+            except:
+                try:
+                    kk.kickoutFromGroup(op.param1,[op.param2])
+                except:
+                    try:
+                        kc.kickoutFromGroup(op.param1,[op.param2])
+                    except:
+                        try:
+                            km.kickoutFromGroup(op.param1,[op.param2])
+                        except:
+                            try:
+                                random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                            except:
+                                pass
 
         if op.type == 17:
             if op.param1 in welcome:
@@ -734,8 +760,8 @@ def bot(op):
                 if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
                     wait["blacklist"][op.param2] = True
                     try:
-                        random.choice(ABC).inviteIntoGroup(op.param1,[op.param3]) 
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2]) 
+                        ki.inviteIntoGroup(op.param1,[op.param3]) 
+                        ki.kickoutFromGroup(op.param1,[op.param2]) 
                         wait["blacklist"][op.param2] = True
                     except:
                         try:
@@ -749,18 +775,18 @@ def bot(op):
                                 wait["blacklist"][op.param2] = True
                             except:
                                 try:
-                                    ki.inviteIntoGroup(op.param1,[op.param3])
-                                    ki.kickoutFromGroup(op.param1,[op.param2])
+                                    km.inviteIntoGroup(op.param1,[op.param3])
+                                    km.kickoutFromGroup(op.param1,[op.param2])
                                     wait["blacklist"][op.param2] = True
                                 except:
                                     try:
-                                        km.inviteIntoGroup(op.param1,[op.param3])
-                                        km.kickoutFromGroup(op.param1,[op.param2])
+                                        ki.inviteIntoGroup(op.param1,[op.param3])
+                                        ki.kickoutFromGroup(op.param1,[op.param2])
                                         wait["blacklist"][op.param2] = True
                                     except:
                                         try:
-                                            kk.inviteIntoGroup(op.param1,[op.param3])
-                                            kk.kickoutFromGroup(op.param1,[op.param2])
+                                            random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                                             wait["blacklist"][op.param2] = True
                                         except:
                                             pass
@@ -780,8 +806,8 @@ def bot(op):
                 else:
                     wait["blacklist"][op.param2] = True
                     try:
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2]) 
-                        random.choice(ABC).inviteIntoGroup(op.param1,[op.param3]) 
+                        ki.kickoutFromGroup(op.param1,[op.param2]) 
+                        ki.inviteIntoGroup(op.param1,[op.param3]) 
                         cl.acceptGroupInvitation(op.param1)
                         wait["blacklist"][op.param2] = True
                     except:
