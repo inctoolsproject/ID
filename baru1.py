@@ -146,7 +146,7 @@ wait = {
     "Respontag":"Asw",
     "welcome":"Selamat datang & betah",
     "comment":"by id bots",
-    "message":"Terimakasih sudah add saya 😃"
+    "message":"Terimakasih sudah add "
     }
 
 read = {
@@ -2109,7 +2109,7 @@ def bot(op):
                                 except:
                                     pass
 
-                        elif cmd == "/":
+                        elif cmd == "/m":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
@@ -2127,7 +2127,7 @@ def bot(op):
                                 G.preventedJoinByTicket = True
                                 #kc.updateGroup(G)
 
-                        elif cmd == "\i":
+                        elif cmd == "\k":
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                 G = cl.getGroup(msg.to)
@@ -2985,9 +2985,9 @@ def bot(op):
                                      group4 = km.findGroupByTicket(ticket_id)
                                      km.acceptGroupInvitationByTicket(group4.id,ticket_id)
                                      km.sendMessage(msg.to, "Masuk : %s" % str(group.name))
-                                     group5 = kn.findGroupByTicket(ticket_id)
-                                     kn.acceptGroupInvitationByTicket(group5.id,ticket_id)
-                                     kn.sendMessage(msg.to, "Masuk : %s" % str(group.name))	
+                                     #group5 = kn.findGroupByTicket(ticket_id)
+                                     #kn.acceptGroupInvitationByTicket(group5.id,ticket_id)
+                                     #kn.sendMessage(msg.to, "Masuk : %s" % str(group.name))	
 
     except Exception as error:
         print (error)
