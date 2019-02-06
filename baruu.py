@@ -25,25 +25,25 @@ channel1 = LineChannel(ki)
 ki.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 #kk = LineClient()
-kk = LineClient(authToken='uceedd48788c29c4853b8a4ab597cf187:aWF0OiAxNTQ2NjYxMDkzODEzCg==..g2BvSXPGQsq0ajdLUHYmcwf7NAE=')
+kk = LineClient(authToken='')
 kk.log("Auth Token : " + str(kk.authToken))
 channel2 = LineChannel(kk)
 kk.log("Channel Access Token : " + str(channel2.channelAccessToken))
 
 #kc = LineClient()
-kc = LineClient(authToken='ue2d5f82856c9d3787d203ac3a926f457:aWF0OiAxNTQ2NjYwNTUxMDk0Cg==..Zo0biwHsxTpiwEwsocjo7ukNoOA=')
+kc = LineClient(authToken='')
 kc.log("Auth Token : " + str(kc.authToken))
 channel3 = LineChannel(kc)
 kc.log("Channel Access Token : " + str(channel3.channelAccessToken))
 
 #km = LineClient()
-km = LineClient(authToken='u5363e49c9aee8a09cfc6443f23c61053:aWF0OiAxNTQ2NjU5MzYxOTg4Cg==..vFQA4+hGWkEOPSGOw3o3h0JU6vw=')
+km = LineClient(authToken='')
 km.log("Auth Token : " + str(km.authToken))
 channel4 = LineChannel(kc)
 km.log("Channel Access Token : " + str(channel4.channelAccessToken))
 
 kn = LineClient()
-kn = LineClient(authToken='u10edf1b1d7503a698fd2496a8d2ee6da:aWF0OiAxNTQ3MzY1MTY1NTM2Cg==..DMHEbZYksf7l+NP0oHaaLCt+/E4=')
+kn = LineClient(authToken='')
 kn.log("Auth Token : " + str(kn.authToken))
 channel5 = LineChannel(kn)
 kn.log("Channel Access Token : " + str(channel5.channelAccessToken))
@@ -56,9 +56,9 @@ kn.log("Channel Access Token : " + str(channel5.channelAccessToken))
 poll = LinePoll(cl)
 call = cl
 creator = ["ua8bd605b26c6a50e0177c7055a5db640"]
-owner = ["ue894f1c3b8f18d651217a68efb38b2a5"]
-admin = ["ue894f1c3b8f18d651217a68efb38b2a5","u6723125e7f53d6758acb4aaa613605d0"]
-staff = ["ue894f1c3b8f18d651217a68efb38b2a5"]
+owner = []
+admin = ["u6723125e7f53d6758acb4aaa613605d0"]
+staff = []
 myMid = cl.profile.mid
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
@@ -148,7 +148,7 @@ wait = {
     "sticker":False,
     "selfbot":True,
     "mention":"nah",
-    "Respontag":"Asw",
+    "Respontag":"anjir lu",
     "welcome":"Selamat datang & betah",
     "comment":"by id bots",
     "message":"Terimakasih sudah add saya 😃"
@@ -809,19 +809,16 @@ def bot(op):
                     wait["blacklist"][op.param2] = True
                     try:
                         ki.kickoutFromGroup(op.param1,[op.param2])
-                        ki.findAndAddContactsByMid(op.param1,[op.param3])
                         ki.inviteIntoGroup(op.param1,[op.param3])
                         cl.acceptGroupInvitation(op.param1)
                     except:
                         try:
                             kk.kickoutFromGroup(op.param1,[op.param2])
-                            kk.findAndAddContactsByMid(op.param1,[op.param3])
                             kk.inviteIntoGroup(op.param1,[op.param3])
                             cl.acceptGroupInvitation(op.param1)
                         except:
                             try:
                                 kc.kickoutFromGroup(op.param1,[op.param2])
-                                kc.findAndAddContactsByMid(op.param1,[op.param3])
                                 kc.inviteIntoGroup(op.param1,[op.param3])
                                 cl.acceptGroupInvitation(op.param1)
                             except:
@@ -843,14 +840,12 @@ def bot(op):
                                     Ticket = ki.reissueGroupTicket(op.param1)
                                 except:
                                     try:
-                                        ko.kickoutFromGroup(op.param1,[op.param2])
-                                        ko.findAndAddContactsByMid(op.param1,[op.param3])
+                                        km.kickoutFromGroup(op.param1,[op.param2])
                                         km.inviteIntoGroup(op.param1,[op.param3])
                                         cl.acceptGroupInvitation(op.param1)
                                     except:
                                         try:
                                             kn.kickoutFromGroup(op.param1,[op.param2])
-                                            kn.findAndAddContactsByMid(op.param1,[op.param3])
                                             kn.inviteIntoGroup(op.param1,[op.param3])
                                             cl.acceptGroupInvitation(op.param1)
                                         except:
@@ -917,7 +912,7 @@ def bot(op):
                                             except:
                                                 try:
                                                     kc.kickoutFromGroup(op.param1,[op.param2])
-                                                    kc.inviteIntoGroup(op.param1,[op.param3])
+                                                    kc.inviteIntoGroup(op.param1,[op.param3)
                                                     ki.acceptGroupInvitation(op.param1)
                                                 except:
                                                     pass
