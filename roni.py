@@ -853,27 +853,27 @@ def bot(op):
                     wait["blacklist"][op.param2] = True
                     try:
                         kk.kickoutFromGroup(op.param1,[op.param2])
-                        kk.inviteIntoGroup(op.param1, Bots)
+                        kk.inviteIntoGroup(op.param1,[op.param3])
                        # ki.acceptGroupInvitation(op.param1)
                     except:
                         try:
                             kc.kickoutFromGroup(op.param1,[op.param2])
-                            kc.inviteIntoGroup(op.param1,Bots)
+                            kc.inviteIntoGroup(op.param1,[op.param3])
                             #ki.acceptGroupInvitation(op.param1)
                         except:
                             try:
                                 km.kickoutFromGroup(op.param1,[op.param2])
-                                km.inviteIntoGroup(op.param1, Bots)
+                                km.inviteIntoGroup(op.param1,[op.param3])
                               #  ki.acceptGroupInvitation(op.param1)
                             except:
                                 try:
                                     kn.kickoutFromGroup(op.param1,[op.param2])
-                                    kn.inviteIntoGroup(op.param1, Bots)
+                                    kn.inviteIntoGroup(op.param1,[op.param3])
                                    # ki.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        kk.kickoutFromGroup(op.param1,[op.param2])
-                                        kk.inviteIntoGroup(op.param1,Bots)
+                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
                                        # ki.acceptGroupInvitation(op.param1)
                                     except:
                                         pass
