@@ -872,9 +872,21 @@ def bot(op):
                                     ki.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
-                                       # ki.acceptGroupInvitation(op.param1)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = False
+                                        # kk.kickoutFromGroup(op.param1,[op.param2])
+                                        cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
+                                     #   cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = True
+                                        #cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
                                     except:
                                         pass
                 return
@@ -910,9 +922,21 @@ def bot(op):
                                     kk.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
-                         #               kk.acceptGroupInvitation(op.param1)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = False
+                                        # kk.kickoutFromGroup(op.param1,[op.param2])
+                                        cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
+                                       # cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = True
+                                        #cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
                                     except:
                                         pass
                 return
@@ -948,9 +972,21 @@ def bot(op):
                                     kc.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
-                                      #  kc.acceptGroupInvitation(op.param1)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = False
+                                        # kk.kickoutFromGroup(op.param1,[op.param2])
+                                        cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
+                                        #cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = True
+                                        #cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
                                     except:
                                         pass
                 return
@@ -986,8 +1022,21 @@ def bot(op):
                                     km.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = False
+                                        # kk.kickoutFromGroup(op.param1,[op.param2])
+                                        cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
+                                        #cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = True
+                                        #cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
                                     except:
                                         pass
                 return
@@ -1023,9 +1072,21 @@ def bot(op):
                                     kn.acceptGroupInvitation(op.param1)
                                 except:
                                     try:
-                                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                        random.choice(ABC).inviteIntoGroup(op.param1,Bots)
-                                     #   kn.acceptGroupInvitation(op.param1)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = False
+                                        # kk.kickoutFromGroup(op.param1,[op.param2])
+                                        cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
+                                        #cl.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        ki.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        kn.acceptGroupInvitationByTicket(op.param1,Ticket)
+                                        G = cl.getGroup(op.param1)
+                                        G.preventedJoinByTicket = True
+                                        #cl.updateGroup(G)
+                                        Ticket = cl.reissueGroupTicket(op.param1)
                                     except:
                                        pass
                 return
@@ -1795,17 +1856,17 @@ def bot(op):
                                     kc.leaveGroup(i)
                                     cl.sendMessage(msg.to,"Berhasil keluar di grup " +str(ginfo.name))
 					
-                      #  elif cmd == "cek":
-                      #      if msg._from in admin or msg._from in owner:
-                           #    try:cl.inviteIntoGroup(to, mid);has = "OK"
-                        #       except:has = "NOT"
-                       #        try:cl.kickoutFromGroup(to, mid);has1 = "OK"
-                         #      except:has1 = "NOT"
-                          #     if has == "OK":sil = "ok"
-                          #     else:sil = "limit"
-                           #    if has1 == "OK":sil1 = "ok"
-                        #       else:sil1 = "limit"
-                          #     cl.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))
+                        elif cmd == "cek":
+                            if msg._from in admin or msg._from in owner:
+                               try:cl.inviteIntoGroup(to,["u81c2d8cc8e216bdf3e9f7737fafbfcfc"]);has = "OK"
+                               except:has = "NOT"
+                               try:cl.kickoutFromGroup(to,["u81c2d8cc8e216bdf3e9f7737fafbfcfc"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               cl.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))
                           #     try:ki.inviteIntoGroup(to, Amid);has = "OK"
                          #      except:has = "NOT"
                           #     try:ki.kickoutFromGroup(to, Amid);has1 = "OK"
@@ -2560,7 +2621,7 @@ def bot(op):
                                 else:
                                     cl.sendText(msg.to,"Jumlah melebihi batas")
 
-                        elif 'Gift: ' in msg.text:
+                        elif 'Gift: ' in text.lower():
                           if wait["selfbot"] == True:
                            if msg._from in admin:
                               korban = msg.text.replace('Gift: ','')
@@ -2574,7 +2635,7 @@ def bot(op):
                                       kk.sendMessage(midd, None, contentMetadata={'PRDID': 'a0768339-c2d3-4189-9653-2909e9bb6f58', 'PRDTYPE': 'THEME', 'MSGTPL': '6'}, contentType=9)
                                       kc.sendMessage(midd, None, contentMetadata={'PRDID': 'a0768339-c2d3-4189-9653-2909e9bb6f58', 'PRDTYPE': 'THEME', 'MSGTPL': '6'}, contentType=9)
 
-                        elif 'Spam: ' in msg.text:
+                        elif 'Spam: ' in text.lower():
                           if wait["selfbot"] == True:
                            if msg._from in admin:
                               korban = msg.text.replace('Spam: ','')
@@ -3137,7 +3198,7 @@ def bot(op):
                               mc = "[%i]User Blacklist" % len(ragets)
                               cl.sendMessage(msg.to,"Sukses membersihkan " +mc)
 #===========COMMAND SET============#
-                        elif 'Set pesan: ' in msg.text:
+                        elif 'Set pesan: ' in text.lower():
                            if msg._from in admin:
                               spl = msg.text.replace('Set pesan: ','')
                               if spl in [""," ","\n",None]:
@@ -3146,7 +3207,7 @@ def bot(op):
                                   wait["message"] = spl
                                   cl.sendMessage(msg.to, "[Pesan Msg]\nPesan Msg diganti jadi :\n\n[{}]".format(str(spl)))
 
-                        elif 'Set welcome: ' in msg.text:
+                        elif 'Set welcome: ' in text.lowe:():
                            if msg._from in admin:
                               spl = msg.text.replace('Set welcome: ','')
                               if spl in [""," ","\n",None]:
@@ -3155,7 +3216,7 @@ def bot(op):
                                   wait["welcome"] = spl
                                   cl.sendMessage(msg.to, "[Welcome Msg]\nWelcome Msg diganti jadi :\n\n[{}]".format(str(spl)))
 
-                        elif 'Set respon: ' in msg.text:
+                        elif 'Set respon: ' in text.lower():
                            if msg._from in admin:
                               spl = msg.text.replace('Set respon: ','')
                               if spl in [""," ","\n",None]:
@@ -3164,7 +3225,7 @@ def bot(op):
                                   wait["Respontag"] = spl
                                   cl.sendMessage(msg.to, "[Respon Msg]\nRespon Msg diganti jadi :\n\n[{}]".format(str(spl)))
 
-                        elif 'Set spam: ' in msg.text:
+                        elif 'Set spam: ' in text.lower():
                            if msg._from in admin:
                               spl = msg.text.replace('Set spam: ','')
                               if spl in [""," ","\n",None]:
@@ -3173,7 +3234,7 @@ def bot(op):
                                   Setmain["message1"] = spl
                                   cl.sendMessage(msg.to, "[Spam Msg]\nSpam Msg diganti jadi :\n\n[{}]".format(str(spl)))
 
-                        elif 'Set sider: ' in msg.text:
+                        elif 'Set sider: ' in text.lower():
                            if msg._from in admin:
                               spl = msg.text.replace('Set sider: ','')
                               if spl in [""," ","\n",None]:
