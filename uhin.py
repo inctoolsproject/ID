@@ -1943,62 +1943,62 @@ def bot(op):
                                     kc.leaveGroup(i)
                                     cl.sendMessage(msg.to,"Berhasil keluar di grup " +str(ginfo.name))
 					
-                      #  elif cmd == "cek":
-                      #      if msg._from in admin or msg._from in owner:
-                           #    try:cl.inviteIntoGroup(to, mid);has = "OK"
-                        #       except:has = "NOT"
-                       #        try:cl.kickoutFromGroup(to, mid);has1 = "OK"
-                         #      except:has1 = "NOT"
-                          #     if has == "OK":sil = "ok"
-                          #     else:sil = "limit"
-                           #    if has1 == "OK":sil1 = "ok"
-                        #       else:sil1 = "limit"
-                          #     cl.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))
-                          #     try:ki.inviteIntoGroup(to, Amid);has = "OK"
-                         #      except:has = "NOT"
-                          #     try:ki.kickoutFromGroup(to, Amid);has1 = "OK"
-                        #       except:has1 = "NOT"
-                           #    if has == "OK":sil = "ok"
-                         #      else:sil = "limit"
-                          #     if has1 == "OK":sil1 = "ok"
-                           #    else:sil1 = "limit"
-                          #     ki.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))                               
-                          #     try:kk.inviteIntoGroup(to, Bmid);has = "OK"
-                            #   except:has = "NOT"
-                           #    try:kk.kickoutFromGroup(to, Bmid);has1 = "OK"
-                    #           except:has1 = "NOT"
-                  #             if has == "OK":sil = "ok"
-                  #             else:sil = "limit"
-                   #            if has1 == "OK":sil1 = "ok"
-                     #          else:sil1 = "limit"
-                       #        kk.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))
-                     #          try:kc.inviteIntoGroup(to, Cmid);has = "OK"
-                   #            except:has = "NOT"
-                 #              try:kc.kickoutFromGroup(to, Cmid);has1 = "OK"
-                   #            except:has1 = "NOT"
-                   #            if has == "OK":sil = "ok"
-                  #             else:sil = "limit"
-                 #              if has1 == "OK":sil1 = "ok"
-                 #              else:sil1 = "limit"
-                   #            kc.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))                               
-                     #          try:kc.inviteIntoGroup(to, Dmid);has = "OK"
-                   #            except:has = "NOT"
-               #                try:km.kickoutFromGroup(to, Dmid);has1 = "OK"
-               #                except:has1 = "NOT"
-                 #              if has == "OK":sil = "ok"
-                #               else:sil = "limit"
-               #                if has1 == "OK":sil1 = "ok"
-                 #              else:sil1 = "limit"
-                 #              km.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))                              
-                #               try:kn.inviteIntoGroup(to, Emid);has = "OK"
-                #               except:has = "NOT"
-                 #              try:kn.kickoutFromGroup(to, Emid);has1 = "OK"
-               #                except:has1 = "NOT"
-              #                 if has == "OK":sil = "ok"
-               #                else:sil = "limit"
-                   #            if has1 == "OK":sil1 = "ok"
-               #                else:sil1 = "limit"
-                #               kn.sendMessage(to, "Status:\n\n🔴Kick : {} \n🔴Invite : {}".format(sil1,sil))
+                        elif cmd == "cek":
+                            if msg._from in admin or msg._from in owner:
+                               try:ko.inviteIntoGroup(to,["u3f01617eaf3ac162e8fd4238215b7f01"]);has = "OK"
+                               except:has = "NOT"
+                               try:ko.kickoutFromGroup(to,["u3f01617eaf3ac162e8fd4238215b7f01"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               ko.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))
+                               try:ki.inviteIntoGroup(to,["uf40f061e0f0f5ba67b0722e78e656bfb"]);has = "OK"
+                               except:has = "NOT"
+                               try:ki.kickoutFromGroup(to,["uf40f061e0f0f5ba67b0722e78e656bfb"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               ki.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))                               
+                               try:kk.inviteIntoGroup(to,["uceedd48788c29c4853b8a4ab597cf187"]);has = "OK"
+                               except:has = "NOT"
+                               try:kk.kickoutFromGroup(to,["uceedd48788c29c4853b8a4ab597cf187"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               kk.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))
+                               try:kc.inviteIntoGroup(to,["ue2d5f82856c9d3787d203ac3a926f457"]);has = "OK"
+                               except:has = "NOT"
+                               try:kc.kickoutFromGroup(to,["ue2d5f82856c9d3787d203ac3a926f457"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               kc.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))                               
+                               try:km.inviteIntoGroup(to,["u5363e49c9aee8a09cfc6443f23c61053"]);has = "OK"
+                               except:has = "NOT"
+                               try:km.kickoutFromGroup(to,["u5363e49c9aee8a09cfc6443f23c61053"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               km.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))                              
+                               try:kn.inviteIntoGroup(to,["u10edf1b1d7503a698fd2496a8d2ee6da"]);has = "OK"
+                               except:has = "NOT"
+                               try:kn.kickoutFromGroup(to,["u10edf1b1d7503a698fd2496a8d2ee6da"]);has1 = "OK"
+                               except:has1 = "NOT"
+                               if has == "OK":sil = "ok"
+                               else:sil = "limit"
+                               if has1 == "OK":sil1 = "ok"
+                               else:sil1 = "limit"
+                               kn.sendMessage(to, "Status:\n\nKick : {} \nInvite : {}".format(sil1,sil))
                                                                                     
 
                         elif cmd == "friendlist":
