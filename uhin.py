@@ -2901,7 +2901,7 @@ def bot(op):
                                            pass
 
 #===========ADMIN ADD============#
-                        elif ("Adminadd " in msg.text):
+                        elif "Adminadd " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -2916,7 +2916,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Staffadd " in msg.text):
+                        elif "Staffadd " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -2931,7 +2931,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Botadd " in msg.text):
+                        elif "Botadd " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -2946,7 +2946,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Admindell " in msg.text):
+                        elif "Admindell " in text.lower():
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
                                key["MENTIONEES"][0]["M"]
@@ -2961,7 +2961,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Staffdell " in msg.text):
+                        elif "Staffdell " in text.lower():
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
                                key["MENTIONEES"][0]["M"]
@@ -2976,7 +2976,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Botdell " in msg.text):
+                        elif "Botdell " in text.lower():
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
                                key["MENTIONEES"][0]["M"]
@@ -3154,7 +3154,7 @@ def bot(op):
                                 cl.sendText(msg.to,"Notag dinonaktifkan")
 
 #===========COMMAND BLACKLIST============#
-                        elif ("Talkban " in msg.text):
+                        elif "Talkban " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -3169,7 +3169,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Untalkban " in msg.text):
+                        elif "Untalkban " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -3196,7 +3196,7 @@ def bot(op):
                                 wait["Talkdblacklist"] = True
                                 cl.sendText(msg.to,"Kirim kontaknya...")
 
-                        elif ("Ban " in msg.text):
+                        elif "Ban " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
@@ -3211,7 +3211,7 @@ def bot(op):
                                        except:
                                            pass
 
-                        elif ("Unban " in msg.text):
+                        elif "Unban " in text.lower():
                           if wait["selfbot"] == True:
                             if msg._from in admin:
                                key = eval(msg.contentMetadata["MENTION"])
