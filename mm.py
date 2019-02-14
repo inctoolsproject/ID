@@ -2554,6 +2554,14 @@ def clientBot(op):
                                     ret_ += str(no) + ". " + image.title() + "\n"
                                 ret_ += "\nTotal {} Images".format(str(len(images)))
                                 client.sendAiri(msg.id,to, ret_)
+                            elif cmd == "randomtiktok":
+                                contact = client.getContact(sender)
+                                 data = {
+                                    "type": "video",
+                                    "originalContentUrl": "https://rest.farzain.com/api/tiktok.php?apikey=fn",
+                                    "previewImageUrl": "https://obs.line-scdn.net/{}".format(contact.pictureStatus),
+                                    }
+                                sendTemplate(to, data)
 #=========== [ Add Video ] ============#                               
                             elif cmd.startswith("addvideo "):
                               if msg._from in admin:
@@ -2593,7 +2601,63 @@ def clientBot(op):
                                     ret_ += str(no) + ". " + video.title() + "\n"
                                 ret_ += "\nTotal {} Videos".format(str(len(videos)))
                                 client.sendAiri(msg.id,to, ret_)
-#=========== [ Add Video ] ============#    
+#=========== [ Add Video ] ============#   
+                            elif cmd.startswith("indonesian:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=in&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)
+
+                            elif cmd.startswith("korea:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=ko&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)
+                            elif cmd.startswith("japan:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=ja&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)
+                            elif cmd.startswith("thailand:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=th&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)
+                            elif cmd.startswith("arab:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=ar&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)            
                             elif cmd.startswith("invite "):
                               if msg._from in admin:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
