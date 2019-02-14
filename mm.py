@@ -17,6 +17,18 @@ from bs4 import BeautifulSoup
 from googletrans import Translator
 from gtts_token.gtts_token import Token
 _session = requests.session()
+from multiprocessing import Pool
+from googletrans import Translator
+from urllib.parse import urlencode
+from wikiapi import WikiApi
+from tmp.MySplit import *
+from random import randint
+from shutil import copyfile
+from youtube_dl import YoutubeDL
+import subprocess, youtube_dl, humanize, traceback
+import subprocess as cmd
+import platform
+import requests, json
 from gtts import gTTS
 import youtube_dl
 from ffmpy import FFmpeg
@@ -1541,7 +1553,30 @@ def sendTemplate(to, data):
         'Authorization': 'Bearer %s' % token.accessToken
     }
     return _session.post(url=url, data=json.dumps(data), headers=headers)
-    
+def sendCarousel(to, data):
+    data = json.dumps(data)
+    xyz = LiffChatContext(to)
+    xyzz = LiffContext(chat=xyz)
+    view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
+    token = client.liff.issueLiffView(view)
+    url = 'https://api.line.me/message/v3/share'
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer %s' % token.accessToken
+    }
+    return requests.post(url, data=data, headers=headers)
+def sendCarousel(to,col):
+    col = json.dumps(col)
+    xyz = LiffChatContext(to)
+    xyzz = LiffContext(chat=xyz)
+    view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
+    token = client.issueLiffView(view)
+    url = 'https://api.line.me/message/v3/share'
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer %s' % token.accessToken
+    }
+    return requests.post(url, data=col, headers=headers)    
 def cTime_to_datetime(unixtime):
     return datetime.fromtimestamp(int(str(unixtime)[:len(str(unixtime))-3]))
 def dt_to_str(dt):
@@ -1593,7 +1628,33 @@ def _images_get_all_items(page):
             page = page[end_content:]
     return items
     
+def youtubeMp3(to, link):
+    subprocess.getoutput('youtube-dl --extract-audio --audio-format mp3 --output TeamAnuBot.mp3 {}'.format(link))
+    try:
+        client.sendAudio(to, 'TeamAnuBot.mp3')
+        time.sleep(2)
+        os.remove('TeamAnuBot.mp3')
+    except Exception as e:
+        client.sendMessage(to, "Error")
 
+def fileYtMp4(to, link):
+    subprocess.getoutput('youtube-dl --format mp4 --output FileYoutube.mp4 {}'.format(link))
+    try:
+        client.sendFile(to, "FileYoutube.mp4")
+        time.sleep(2)
+        os.remove('FileYoutube.mp4')
+    except Exception as e:
+        client.sendMessage(to, ' 「 ERROR 」')
+    
+def fileYtMp3(to, link):
+    subprocess.getoutput('youtube-dl --extract-audio --audio-format mp3 --output FileYoutube.mp3 {}'.format(link))
+    try:
+        client.sendFile(to, 'FileYoutube.mp3')
+        time.sleep(2)
+        os.remove('FileYoutube.mp3')
+    except Exception as e:
+        client.sendMessage(to, ' 「 ERROR 」')
+#=====================
 def sendMention(to, text="", mids=[]):
     arrData = ""
     arr = []
@@ -2429,6 +2490,32 @@ def clientBot(op):
                                     profile.statusMessage = string
                                     client.updateProfile(profile)
                                     client.sendAiri(msg.id,to,"Succes change to {}".format(str(string)))
+                            elif cmd.startswith("disco "):
+                                number = removeCmd("disco", text)
+                                groups = client.getGroupIdsJoined()
+                                group = groups[int(number)-1]
+                                G = client.getGroup(group)
+                                ret_ = []
+                                ret_.append({"imageUrl":"https://techflourish.com/images/book-clipart-gif-9.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://i.pinimg.com/originals/a1/9a/39/a19a390f4a46f098eec1c8070001b5ad.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://4.bp.blogspot.com/-MifM_HCQjAE/Wnkgxjj-pcI/AAAAAAALEdg/ObmxB3z9aW8DXfVnjwTCUNooO3LfgDsSQCLcBGAs/s1600/AS003630_02.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://media.giphy.com/media/fvOKZ1hETl5L2/giphy.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://steamusercontent-a.akamaihd.net/ugc/269469010840327100/309EC530780F049E3FAC757C4B2A75A008D2667E/","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://media.giphy.com/media/lnd8s1O9mV61O/giphy.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                ret_.append({"imageUrl":"https://s.kaskus.id/images/2013/06/05/5534212_20130605075951.gif","size": "full","action": {"type": "uri","uri": "line://ti/p/~botjgp00"}})
+                                k = len(ret_)//5
+                                for aa in range(k+1):
+                                    data = {
+                                        "type": "template",
+                                        "altText": "DiscoDance",
+                                        "template": {
+                                            "type": "image_carousel",
+                                            "columns": ret_[aa*5 : (aa+1)*5]
+                                        }
+                                    }
+                                    sendTemplate(group, data)
+                              #  client.sendMessage(to, "Success Remote Template Disco in\nGrup {}".format(G.name))
+#YT REMOTE
                             elif cmd.startswith("addimg"):
                               if msg._from in admin:
                                 sep = text.split(" ")
@@ -2506,7 +2593,23 @@ def clientBot(op):
                                     ret_ += str(no) + ". " + video.title() + "\n"
                                 ret_ += "\nTotal {} Videos".format(str(len(videos)))
                                 client.sendAiri(msg.id,to, ret_)
-#=========== [ Add Video ] ============#                               
+#=========== [ Add Video ] ============#    
+                            elif cmd.startswith("invite "):
+                              if msg._from in admin:
+                                if 'MENTION' in msg.contentMetadata.keys()!= None:
+                                    names = re.findall(r'@(\w+)', text)
+                                    mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                                    mentionees = mention['MENTIONEES']
+                                    lists = []
+                                    for mention in mentionees:
+                                        if mention["M"] not in lists:
+                                            lists.append(mention["M"])
+                                    for ls in lists:
+                                        try:
+                                            client.findAndAddContactsByMid(ls)
+                                            client.inviteIntoGroup(to, [ls])
+                                        except:
+                                            client.sendMessage(to, "Limited !")
                             elif cmd.startswith("addmp3 "):
                               if msg._from in admin:
                                 sep = text.split(" ")
