@@ -1553,6 +1553,19 @@ def sendTemplate(to, data):
         'Authorization': 'Bearer %s' % token.accessToken
     }
     return _session.post(url=url, data=json.dumps(data), headers=headers)
+def sendTemplate(group, data):
+    xyz = LiffChatContext(group)
+    xyzz = LiffContext(chat=xyz)
+    view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
+    token = client.liff.issueLiffView(view)
+    url = 'https://api.line.me/message/v3/share'
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer %s' % token.accessToken
+    }
+    data = {"messages":[data]}
+    requests.post(url, headers=headers, data=json.dumps(data))
+
 def sendCarousel(to, data):
     data = json.dumps(data)
     xyz = LiffChatContext(to)
@@ -2491,7 +2504,7 @@ def clientBot(op):
                                     client.updateProfile(profile)
                                     client.sendAiri(msg.id,to,"Succes change to {}".format(str(string)))
                             elif cmd.startswith("disco "):
-                                number = removeCmd("disco", text)
+                                #number = removeCmd("disco", text)
                                 groups = client.getGroupIdsJoined()
                                 group = groups[int(number)-1]
                                 G = client.getGroup(group)
