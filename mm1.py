@@ -3708,6 +3708,42 @@ def clientBot(op):
                                         client.sendImageWithURL(msg.to, pict)
                                         client.sendMessage(msg.to,"Type : Video\nWait for media uploading..!")
                                         client.sendVideoWithURL(msg.to, mp4)
+                            elif cmd.startswith("searchapp "):
+                              #  query = removeCmd("searchapp", text)
+                                cond = query.split("|")
+                                search = str(cond[0])
+                                result = requests.get("http://api.farzain.com/playstore.php?id={}&apikey=KJaOT94NCD1bP1veQoJ7uXc9M".format(str(search)))
+                                data = result.text
+                                data = json.loads(data)
+                                if data != []:
+                                    ret_ = []
+                                    for music in data:
+                                        if 'http://' in music["url"]:
+                                            pass
+                                        else:
+                                            if len(ret_) >= 10:
+                                                pass
+                                            else:
+                                                ret_.append({
+                                                    "imageUrl": "{}".format(str(music["icon"])),
+                                                    "action": {
+                                                        "type": "uri",
+                                                        "label": "Download",
+                                                        "uri": "{}".format(str(music["url"]))
+                                                        }
+                                                    }
+                                                )
+                                    k = len(ret_)//10
+                                    for aa in range(k+1):
+                                        data = {
+                                            "type": "template",
+                                            "altText": "Searching App",
+                                            "template": {
+                                                "type": "image_carousel",
+                                                "columns": ret_[aa*10 : (aa+1)*10]
+                                            }
+                                        }
+                                        sendTemplate(to, data)
                             elif cmd.startswith("instastory"):
                               if msg._from in admin:
                                 try:
