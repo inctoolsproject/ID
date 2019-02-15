@@ -1553,6 +1553,18 @@ def sendTemplate(to, data):
         'Authorization': 'Bearer %s' % token.accessToken
     }
     return _session.post(url=url, data=json.dumps(data), headers=headers)
+def sendTemplate(group, data):
+    xyzz = LiffContext(chat=LiffChatContext(to))
+    view = LiffViewRequest('1562242036-RW04okm', context = xyzz)
+    token = client.liff.issueLiffView(view)
+    url = 'https://api.line.me/message/v3/share'
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Line/8.14.0',
+        'Authorization': 'Bearer %s' % token.accessToken
+    }
+    return _session.post(url=url, data=json.dumps(data), headers=headers)
+
 def sendCarousel(to, data):
     data = json.dumps(data)
     xyz = LiffChatContext(to)
@@ -2491,7 +2503,7 @@ def clientBot(op):
                                     client.updateProfile(profile)
                                     client.sendAiri(msg.id,to,"Succes change to {}".format(str(string)))
                             elif cmd.startswith("disco "):
-                                number = removeCmd("disco", text)
+                               # number = removeCmd("disco", text)
                                 groups = client.getGroupIdsJoined()
                                 group = groups[int(number)-1]
                                 G = client.getGroup(group)
@@ -2657,7 +2669,19 @@ def clientBot(op):
                                     hasil = "{}".format(data["result"]["translated"])
                                     client.sendMessage(to, str(hasil))
                                 except Exception as error:
-                                    print(error)            
+                                    print(error)   
+		
+                            elif cmd.startswith("jawa:"):
+                                try:
+                                    proses = text.split(" ")
+                                    query = text.replace(proses[0] + " ","")
+                                    r=requests.get("http://ariapi.herokuapp.com/api/trans?key=beta&to=jw&text={}".format(query))
+                                    data=r.text
+                                    data=json.loads(data)
+                                    hasil = "{}".format(data["result"]["translated"])
+                                    client.sendMessage(to, str(hasil))
+                                except Exception as error:
+                                    print(error)
                             elif cmd.startswith("invite "):
                               if msg._from in admin:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2831,6 +2855,25 @@ def clientBot(op):
                                 settings["Addvideo"] = False
                                 settings["AddstickerTag"] = False
                                 client.sendAiri(msg.id,to, "All refresh")
+				
+                            elif cmd == "quran":
+                                ret = "Type: Quran\n\n"
+                                ret += "Daftar Surah\n"
+                                ret += "  • Quranlist\n"
+                                ret += "Get Ayat Qur'an\n"
+                                ret += "  • Qur'an [numsurah]\n"
+                                ret += "  • Qur'an [numsurah] [1|<|>|-]"
+                                hello = "{}".format(str(ret))
+                                data = {
+                                    "type": "text",
+                                    "text": "{}".format(str(ret)),
+                                    "sentBy": {
+                                        "label": "{}".format(client.getContact(clientMID).displayName),
+                                        "iconUrl": "https://obs.line-scdn.net/{}".format(client.getContact(clientMID).pictureStatus),
+                                        "linkUrl": "line://nv/profilePopup/mid=u2cf74acf6ed04d122def4db8ffdd2e39"
+                                    }
+                                }
+                                sendTemplate(to, data)
 
                            # elif cmd == "me":
                             #    client.sendAiri(msg.i)
