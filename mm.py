@@ -357,13 +357,13 @@ def logError(text):
     with open("logError.txt","a") as error:
         error.write("\n[ {} ] {}".format(str(time), text))
 def flexWel(to, text1):
-#    group = client.getGroup(op.param1)
-    contact = client.getContact(clientMid)
+    group = client.getGroup(op.param1)
+    contact = client.getContact(op.param2)
     data = {
       "messages": [
                                         {
                                             "type": "flex",
-                                            "altText": "Brocast by: team ID BOTS",
+                                            "altText": "welcome to ⚛️ ID BOTS ⚛️",
                                             "contents": 
                                                 {
                                                 "type": "bubble",
@@ -404,7 +404,7 @@ def flexWel(to, text1):
                                                                 },
                                                                 {
                                                                     "type": "text",
-                                                                    "text": "╭────────────\n│   ᴾᴱᴺᴳᴵᴿᴵᴹ\n╰────────────\n     {}".format(contact.displayName),
+                                                                    "text": "GROUP\n {}".format(str(group.name)),,
                                                                     "wrap": True,
                                                                     "color": "#FFFF00",
                                                                     "flex": 0
@@ -421,7 +421,7 @@ def flexWel(to, text1):
                                                                 },
                                                                 {
                                                                     "type": "text",
-                                                                    "text": "          ⚛️ ʙʀᴏᴀᴅᴄᴀsᴛ ⚛️",
+                                                                    "text": "       WELCOME",
                                                                     "wrap": True,
                                                                     "color": "#00FFFF",
                                                                     "size": "lg",
@@ -457,7 +457,7 @@ def flexWel(to, text1):
                                                             "action": {
                                                               "type": "uri",
                                                               "label": "OᵂᴺᴱR",
-                                                              "uri": "https://line.me/ti/p/~lovedewi1"
+                                                              "uri": "https://line.me/ti/p/~id_bots"
                                                             }
                                                         },
                                                         {
@@ -3942,7 +3942,157 @@ def clientBot(op):
                                 }
                                 sendTemplate(to, data)
                                # client.sendMessage(to, str(ret_))
-                               # client.sendImageWithURL(msg.to, str(path))				
+                               # client.sendImageWithURL(msg.to, str(path))	
+#TOBAT WOY 
+
+
+
+
+                            elif cmd.startswith("getquranmp3 "):
+                                if msg._from in admin:
+                                  try:
+                                      sep = msg.text.split(" ")
+                                      surah = int(text.replace(sep[0] + " ",""))
+                                      if 0 < surah < 115:
+                                          if surah not in [2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 16, 17, 18, 20, 21, 23, 26, 37]:
+                                              if len(str(surah)) == 1:
+                                                  audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-00" + str(surah) + "-muslimcentral.com.mp3"
+                                                  cl.sendAudioWithURL(to, audionya)
+                                              elif len(str(surah)) == 2:
+                                                  audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-0" + str(surah) + "-muslimcentral.com.mp3"
+                                                  cl.sendAudioWithURL(to, audionya)
+                                              else:
+                                                  audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-" + str(surah) + "-muslimcentral.com.mp3"
+                                                  cl.sendAudioWithURL(to, audionya)
+                                          else:
+                                              cl.sendReplyMessage(msg.id, to, "Surah terlalu panjang")
+                                      else:
+                                          cl.sendReplyMessage(msg.id, to, "Quran hanya 114 surah")
+                                  except Exception as error:
+                                      cl.sendReplyMessage(msg.id, to, "error\n"+str(error))
+                                #logError(error)
+
+                              elif cmd == "quranlist":
+                                if msg._from in admin:
+                                    ret_ = "✦°List Al-Quran:"
+                                    ret_ += "\n\n    1. Al-Faatiha"
+                                    ret_ += "\n    2. Al-Baqara"
+                                    ret_ += "\n    3. Aal-i-Imraan"
+                                    ret_ += "\n    4. An-Nisaa"
+                                    ret_ += "\n    5. Al-Maaida"
+                                    ret_ += "\n    6. Al-An'aam"
+                                    ret_ += "\n    7. Al-A'raaf"
+                                    ret_ += "\n    8. Al-Anfaal"
+                                    ret_ += "\n    9. At-Tawba"
+                                    ret_ += "\n  10. Yunus"
+                                    ret_ += "\n  11. Hud"
+                                    ret_ += "\n  12. Yusuf"
+                                    ret_ += "\n  13. Ar-Ra'd"
+                                    ret_ += "\n  14. Ibrahim"
+                                    ret_ += "\n  15. Al-Hijr"
+                                    ret_ += "\n  16. An-Nahl"
+                                    ret_ += "\n  17. Al-Israa"
+                                    ret_ += "\n  18. Al-Kahf"
+                                    ret_ += "\n  19. Maryam"
+                                    ret_ += "\n  20. Taa-Haa"
+                                    ret_ += "\n  21. Al-Anbiyaa"
+                                    ret_ += "\n  22. Al-Hajj"
+                                    ret_ += "\n  23. Al-Muminoon"
+                                    ret_ += "\n  24. An-Noor"
+                                    ret_ += "\n  25. Al-Furqaan"
+                                    ret_ += "\n  26. Ash-Shu'araa"
+                                    ret_ += "\n  27. An-Naml"
+                                    ret_ += "\n  28. Al-Qasas"
+                                    ret_ += "\n  29. Al-Ankaboot"
+                                    ret_ += "\n  30. Ar-Room"
+                                    ret_ += "\n  31. Luqman"
+                                    ret_ += "\n  32. As-Sajda"
+                                    ret_ += "\n  33. Al-Ahzaab"
+                                    ret_ += "\n  34. Saba"
+                                    ret_ += "\n  35. Faatir"
+                                    ret_ += "\n  36. Yaseen"
+                                    ret_ += "\n  37. As-Saaffaat"
+                                    ret_ += "\n  38. Saad"
+                                    ret_ += "\n  39. Az-Zumar"
+                                    ret_ += "\n  40. Ghafir"
+                                    ret_ += "\n  41. Fussilat"
+                                    ret_ += "\n  42. Ash-Shura"
+                                    ret_ += "\n  43. Az-Zukhruf"
+                                    ret_ += "\n  44. Ad-Dukhaan"
+                                    ret_ += "\n  45. Al-Jaathiya"
+                                    ret_ += "\n  46. Al-Ahqaf"
+                                    ret_ += "\n  47. Muhammad"
+                                    ret_ += "\n  48. Al-Fath"
+                                    ret_ += "\n  49. Al-Hujuraat"
+                                    ret_ += "\n  50. Qaaf"
+                                    ret_ += "\n  51. Adh-Dhaariyat"
+                                    ret_ += "\n  52. At-Tur"
+                                    ret_ += "\n  53. An-Najm"
+                                    ret_ += "\n  54. Al-Qamar"
+                                    ret_ += "\n  55. Ar-Rahmaan"
+                                    ret_ += "\n  56. Al-Waaqia"
+                                    ret_ += "\n  57. Al-Hadid"
+                                    ret_ += "\n  58. Al-Mujaadila"
+                                    ret_ += "\n  59. Al-Hashr"
+                                    ret_ += "\n  60. Al-Mumtahana"
+                                    ret_ += "\n  61. As-Saff"
+                                    ret_ += "\n  62. Al-Jumu'a"
+                                    ret_ += "\n  63. Al-Munaafiqoon"
+                                    ret_ += "\n  64. At-Taghaabun"
+                                    ret_ += "\n  65. At-Talaaq"
+                                    ret_ += "\n  66. At-Tahrim"
+                                    ret_ += "\n  67. Al-Mulk"
+                                    ret_ += "\n  68. Al-Qalam"
+                                    ret_ += "\n  69. Al-Haaqqa"
+                                    ret_ += "\n  70. Al-Ma'aarij"
+                                    ret_ += "\n  71. Nooh"
+                                    ret_ += "\n  72. Al-Jinn"
+                                    ret_ += "\n  73. Al-Muzzammil"
+                                    ret_ += "\n  74. Al-Muddaththir"
+                                    ret_ += "\n  75. Al-Qiyaama"
+                                    ret_ += "\n  76. Al-Insaan"
+                                    ret_ += "\n  77. Al-Mursalaat"
+                                    ret_ += "\n  78. An-Naba"
+                                    ret_ += "\n  79. An-Naazi'aat"
+                                    ret_ += "\n  80. Abasa"
+                                    ret_ += "\n  81. At-Takwir"
+                                    ret_ += "\n  82. Al-Infitaar"
+                                    ret_ += "\n  83. Al-Mutaffifin"
+                                    ret_ += "\n  84. Al-Inshiqaaq"
+                                    ret_ += "\n  85. Al-Burooj"
+                                    ret_ += "\n  86. At-Taariq"
+                                    ret_ += "\n  87. Al-A'laa"
+                                    ret_ += "\n  88. Al-Ghaashiya"
+                                    ret_ += "\n  89. Al-Fajr"
+                                    ret_ += "\n  90. Al-Balad"
+                                    ret_ += "\n  91. Ash-Shams"
+                                    ret_ += "\n  92. Al-Lail"
+                                    ret_ += "\n  93. Ad-Dhuhaa"
+                                    ret_ += "\n  94. Ash-Sharh"
+                                    ret_ += "\n  95. At-Tin"
+                                    ret_ += "\n  96. Al-Alaq"
+                                    ret_ += "\n  97. Al-Qadr"
+                                    ret_ += "\n  98. Al-Bayyina"
+                                    ret_ += "\n  99. Az-Zalzala"
+                                    ret_ += "\n100. Al-Aadiyaat"
+                                    ret_ += "\n101. Al-Qaari'a"
+                                    ret_ += "\n102. At-Takaathur"
+                                    ret_ += "\n103. Al-Asr"
+                                    ret_ += "\n104. Al-Humaza"
+                                    ret_ += "\n105. Al-Fil"
+                                    ret_ += "\n106. Quraish"
+                                    ret_ += "\n107. Al-Maa'un"
+                                    ret_ += "\n108. Al-Kawthar"
+                                    ret_ += "\n109. Al-Kaafiroon"
+                                    ret_ += "\n110. An-Nasr"
+                                    ret_ += "\n111. Al-Masad"
+                                    ret_ += "\n112. Al-Ikhlaas"
+                                    ret_ += "\n113. Al-Falaq"
+                                    ret_ += "\n114. An-Naas"
+                                    ret_ += "\n\nKetik:\n {}getquran: (no)".format(str(Setmain["keyCommand"]))
+                                    ret_ += "\n{}get.quranmp3 (no)".format(str(Setmain["keyCommand"]))
+                                    cl.sendMessage(to, str(ret_))
+
                             elif cmd.startswith("searchlyric"):
                               if msg._from in admin:
                                 sep = msg.text.split(" ")
