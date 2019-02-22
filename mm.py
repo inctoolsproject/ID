@@ -2258,6 +2258,239 @@ def clientBot(op):
                                    ]
                                }
                                sendTemplate(to, data)
+			
+                            if cmd == "team":
+                          #  if msg._from in admin:
+                                contact = uchull.getContact(sender)
+                                data = {'messages':[
+                                       {
+  "type": "flex",
+										  "altText": "My Team",
+										  "contents": {
+  										  "type": "bubble",
+  "styles": {
+"header": {
+                                                            "backgroundColor": "#57504D",
+                                                        }, 
+    "body": {
+      "backgroundColor": "#000000"
+    },
+    "footer": {
+      "backgroundColor": "#57504D"
+    }
+  },
+                                                "header": {
+                                                    "type": "box",
+                                                    "layout": "horizontal",
+                                                    "contents": [
+                                                        {
+                                                            "type": "text",
+                                                            "align": "center",
+                                                            "text": "•G.U.D\nVibration Protect•",
+                                                            "weight": "bold",
+                                                            "color": "#c9ad9d",
+                                                            "size": "md"
+                                                        }
+                                                    ]
+                                                },
+      									  "hero": {
+    										  "type": "image",
+    						 				 "url": "https://data.boteater.co/storage-1550808601625bdVHRw6J.jpg",
+    										  "size": "full",
+                          "margin": "xl"
+
+  										  },
+ 										   "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "md",
+    "contents": [
+                             {
+                            "type": "separator",
+                            "color": "#FFFFE0",
+                            },
+{
+        "type": "box",
+        "layout": "vertical",
+    "spacing": "none",
+        "flex": 1,
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803026985ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm",
+            "gravity": "bottom"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803012900ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550805490004ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+          }
+        ]
+      },
+                             {
+                            "type": "separator",
+                            "color": "#FFFFE0",
+                            },
+{
+        "type": "box",
+        "layout": "vertical",
+    "spacing": "none",
+        "flex": 1,
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803031297ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm",
+            "gravity": "bottom"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803008299ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803010776ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+          }
+        ]
+      },
+                             {
+                            "type": "separator",
+                            "color": "#FFFFE0",
+                            },
+{
+        "type": "box",
+        "layout": "vertical",
+    "spacing": "none",
+        "flex": 1,
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-vaaMTbGa.png",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm",
+            "gravity": "bottom"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550809110087bdVHRw6J.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+           },
+          {
+            "type": "image",
+            "url": "https://data.boteater.co/storage-1550803022010ZyG5w0dv.jpg",
+            "aspectMode": "cover",
+            "aspectRatio": "1:1",
+            "size": "sm"
+          },
+          {
+           "type": "separator",
+          "color": "#FFFFE0",
+          }
+        ]
+      },
+                             {
+                            "type": "separator",
+                            "color": "#FFFFE0",
+                            }
+        ]
+      },
+                         "footer": {
+   								  		 "type": "box",
+   									       "layout": "horizontal",
+    										  "contents": [
+     										   {
+        										  "type": "text",
+        									      "text": "Test Me",
+                                "wrap": True,
+                                "align": "center",
+                                "weight": "bold",
+                                "color": "#c9ad9d",
+                                "size": "xs",
+                                     "action": {
+                                     "type": "uri",
+                                     "uri": "line://app/1602687308-GXq4Vvk9?type=profile"                        
+                                     }
+                                                    
+      									       },
+                            {
+                                "type": "separator",
+                                "color": "#FFFFE0",
+                           },{
+        										  "type": "text",
+        									      "text": "Dsigner",
+                                "wrap": True,
+                                "align": "center",
+                                "weight": "bold",
+                                "color": "#c9ad9d",
+                                "size": "xs",
+                                     "action": {
+                                     "type": "uri",
+                                     "uri": "http://line.me/ti/p/~uchull12."
+                                     }
+                                                    
+      									       }
+												   ]
+											   }
+										   }
+									   }]
+							   }
+							   
+                                sendTemplate(to, data)
 #====================================================================================================================================
                             elif cmd == "autoadd on":
                               if msg._from in admin:
@@ -3957,19 +4190,19 @@ def clientBot(op):
                                           if surah not in [2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 16, 17, 18, 20, 21, 23, 26, 37]:
                                               if len(str(surah)) == 1:
                                                   audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-00" + str(surah) + "-muslimcentral.com.mp3"
-                                                  cl.sendAudioWithURL(to, audionya)
+                                                  client.sendAudioWithURL(to, audionya)
                                               elif len(str(surah)) == 2:
                                                   audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-0" + str(surah) + "-muslimcentral.com.mp3"
-                                                  cl.sendAudioWithURL(to, audionya)
+                                                  client.sendAudioWithURL(to, audionya)
                                               else:
                                                   audionya = "https://audio5.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-" + str(surah) + "-muslimcentral.com.mp3"
-                                                  cl.sendAudioWithURL(to, audionya)
+                                                  client.sendAudioWithURL(to, audionya)
                                           else:
-                                              cl.sendReplyMessage(msg.id, to, "Surah terlalu panjang")
+                                              cl.sendMessage(to, "Surah terlalu panjang")
                                       else:
-                                          cl.sendReplyMessage(msg.id, to, "Quran hanya 114 surah")
+                                          cl.sendMessage(to, "Quran hanya 114 surah")
                                   except Exception as error:
-                                      cl.sendReplyMessage(msg.id, to, "error\n"+str(error))
+                                      cl.sendMessage(to, "error\n"+str(error))
                                 #logError(error)
 
                               elif cmd == "quranlist":
@@ -4091,7 +4324,7 @@ def clientBot(op):
                                     ret_ += "\n114. An-Naas"
                                     ret_ += "\n\nKetik:\n {}getquran: (no)".format(str(Setmain["keyCommand"]))
                                     ret_ += "\n{}get.quranmp3 (no)".format(str(Setmain["keyCommand"]))
-                                    cl.sendMessage(to, str(ret_))
+                                    client.sendMessage(to, str(ret_))
 
                             elif cmd.startswith("searchlyric"):
                               if msg._from in admin:
