@@ -2491,6 +2491,34 @@ def clientBot(op):
 							   }
 							   
                                 sendTemplate(to, data)
+                            elif cmd == "random":
+                                gifnya = ['https://thumbs.gfycat.com/AngelicCloudyJaeger-size_restricted.gif','https://thumbs.gfycat.com/AgedZealousBlackfootedferret-size_restricted.gif','https://thumbs.gfycat.com/FondHastyChinesecrocodilelizard-size_restricted.gif','https://thumbs.gfycat.com/LividCrazyDipper-size_restricted.gif','https://thumbs.gfycat.com/LoathsomeDevotedGossamerwingedbutterfly-size_restricted.gif','https://thumbs.gfycat.com/SamePhysicalHarrierhawk-size_restricted.gif','https://thumbs.gfycat.com/ColorlessPinkLangur-size_restricted.gif','https://thumbs.gfycat.com/ThoseBitesizedBrahmanbull-size_restricted.gif','https://thumbs.gfycat.com/FakeSlowBengaltiger-size_restricted.gif','https://thumbs.gfycat.com/TanSpitefulChupacabra-size_restricted.gif']
+                                data = {
+                                    "type": "template",
+                                    "altText": "Image carouserl",
+                                    "template": {
+                                        "type": "image_carousel",
+                                        "columns": [
+                                            {
+                                                "imageUrl": "{}".format(random.choice(gifnya)),
+                                                "size": "full",
+                                                "action": {
+                                                    "type": "uri",
+                                                    "uri": "line://ti/p/~idbots_ku"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                                sendTemplate(to, data)
+                            elif cmd == "randomtiktok":
+                                contact = client.getContact(sender)
+                                data = {
+                                    "type": "video",
+                                    "originalContentUrl": "https://rest.farzain.com/api/tiktok.php?apikey=fn",
+                                    "previewImageUrl": "https://obs.line-scdn.net/{}".format(contact.pictureStatus),
+                                    }
+                                sendTemplate(to, data)
 #====================================================================================================================================
                             elif cmd == "autoadd on":
                               if msg._from in admin:
@@ -2887,6 +2915,34 @@ def clientBot(op):
                                           }]
                                        }
                                        sendTemplate(to, data)
+                            elif cmd.startswith("music "):
+                                sep = text.split(" ")
+                                txt = msg.text.replace(sep[0] + " ","")
+                                url = requests.get("https://rest.farzain.com/api/joox.php?id={}&apikey=VBbUElsjMS84rXUO7wRlIwjFm".format(txt))
+                                tae = url.json()
+                                anu = tae
+                                data = {
+                                    "type": "template",
+                                    "altText": "Music",
+                                    "template": {
+                                        "type": "buttons",
+                                        "thumbnailImageUrl": "{}".format(anu["gambar"]),
+                                        "imageBackgroundColor": "#FFFFFF",
+                                        "title": "{}".format(anu["info"]["judul"]),
+                                        "text": "{}".format(anu["info"]["penyanyi"]),
+                                        "actions": [
+                                            {
+                                                "type": "uri",
+                                                "label": "Play",
+                                                "uri": "{}".format(anu["audio"]["mp3"])
+                                            }
+                                        ],
+                                        "imageAspectRatio": "square",
+                                        "imageSize": "contain",
+                                        "imageBackgroundColor": "#000000"
+                                    }
+                                }
+                                sendTemplate(to, data)
 #=============Add/Del File==================
                             elif cmd == "refresh" or text.lower() == 'refresh':
                               if msg._from in admin:
